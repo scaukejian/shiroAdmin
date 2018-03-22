@@ -36,7 +36,16 @@ public class ActionVO implements Serializable {
 	
 	//菜单类型
 	private String typeName;
-	
+	private String parentName;
+
+	public String getParentName() {
+		return parentName;
+	}
+
+	public void setParentName(String parentName) {
+		this.parentName = parentName;
+	}
+
 	public List<String> getRole() {
 		return role;
 	}
@@ -149,7 +158,7 @@ public class ActionVO implements Serializable {
 			return "一级菜单";
 		}else if(StringUtils.equals(type, "2")){
 			return "二级菜单";
-		}else if(StringUtils.equals(type, "2")){
+		}else if(StringUtils.equals(type, "3")){
 			return "三级菜单";
 		}else{
 			return "";

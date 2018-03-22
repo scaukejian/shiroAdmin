@@ -31,18 +31,22 @@
                         <td width="15%">
                             <input type="text" name="name" class="form-control" >
                         <td >
-                        <th width="5%">类型：</th>
+                        <th width="5%">菜单等级：</th>
                         <td width="15%">
-                            	<select name="type" class="form-control">
+                            	<select id="list_type" name="type" class="form-control"  onchange="listTypeChange();" >
                             		<option value="0">请选择</option>
                             		<option value="1">一级菜单</option>
                             		<option value="2">二级菜单</option>
                             		<option value="3">三级菜单</option>
                             	</select>
                         <td >
-                          <th width="5%"></th>
+                        <th width="5%">父菜单：</th>
                         <td width="15%">
-                            
+                            <div class="position form-group" >
+                                <select id="list_parent"  name="parent"  class="form-control">
+                                    <option value="0" >请选择</option>
+                                </select>
+                            </div>
                         <td >
                         <td width="15%">
                             <button type="button" id="action_list_select" class="btn btn-blue" >查询</button>

@@ -181,9 +181,9 @@ public class ActionController extends BaseController {
 		map.put(DATA, vo);
 		map.put(STATUS, STATUS_SUCCESS);
 		// 获取上一级菜单
-		map.put(DATA_LIST, actionService.findAllByTypeAndUrl(
+		map.put(DATA_LIST, actionService.findAllByType(
 				(vo != null && vo.getType() != null) ? (Long.parseLong(vo
-						.getType()) - 1) + "" : "", ""));
+						.getType()) - 1) + "" : ""));
 		return map;
 	}
 
@@ -269,7 +269,7 @@ public class ActionController extends BaseController {
 		}
 		Map<String, Object> map = new HashMap<String, Object>();
 		// 获取上级菜单
-		map.put(DATA_LIST, actionService.findAllByTypeAndUrl(type, ""));
+		map.put(DATA_LIST, actionService.findAllByType(type));
 		return map;
 	}
 }

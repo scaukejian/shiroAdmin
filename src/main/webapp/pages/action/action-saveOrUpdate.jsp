@@ -35,13 +35,11 @@
                 <th style="width:85px">菜单类型：</th>
                 <td>
                     <div class="position form-group" onchange="actionTypeChange();" >
-                        <select id="action_type"  name="type"  >
+                        <select id="action_type"  name="type"  class="form-control">
                         <option value="0" >--请选择--</option>
                      	<option value="1" >一级菜单</option>
                      	<option value="2" >二级菜单</option>
                      	<option value="3" >三级菜单</option>
-                     	<option value="4" >四级菜单</option>
-                     	<option value="5" >五级菜单</option>
                         </select>
                     </div>
                 </td>
@@ -51,7 +49,7 @@
                 <th style="width:85px">父菜单：</th>
                 <td>
                     <div class="position form-group" >
-                        <select id="action_parent"  name="parent">
+                        <select id="action_parent"  name="parent"  class="form-control">
                         <option value="0" >请选择</option>
                         </select>
                     </div>

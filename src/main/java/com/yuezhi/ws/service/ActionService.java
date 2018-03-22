@@ -77,6 +77,9 @@ public class ActionService {
 			// 模糊查询
 			criteria.andNameLike(MessageFormat.format("%{0}%", vo.getName()));
 		}
+		if (vo.getParent() != null && vo.getParent() > 0) {
+			criteria.andParentEqualTo(vo.getParent());
+		}
 		if (!"0".equals(vo.getType())) {
 			// 菜单类型 （1 一级 2 二级...）
 			criteria.andTypeEqualTo(vo.getType());
@@ -87,6 +90,10 @@ public class ActionService {
 		for (Action action : actions) {
 			ActionVO actionVO = new ActionVO();
 			actionVO.domain2VO(action);
+			//父菜单
+			if (action.getParent() != null && action.getParent() != 0 && get(action.getParent()) != null) {
+				actionVO.setParentName(get(action.getParent()).getName());
+			}
 			// 获取角色名
 			actionVO.setRole(getRoleName(action.getId()));
 			list.add(actionVO);

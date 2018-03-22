@@ -19,9 +19,12 @@ window.bestMeet.action = function() {
 				}
 			}
 		}, {
-			name : '菜单类型',
+			name : '菜单等级',
 			dataIndex : 'typeName',
 		}, {
+            name : '父菜单',
+            dataIndex : 'parentName',
+        }, {
 			name : 'url',
 			dataIndex : 'url'
 		}, {
@@ -420,6 +423,32 @@ window.bestMeet.action = function() {
 		load : loadData
 	};
 };
+
+function listTypeChange() {
+    var listType = $("#list_type").val();
+    util.bestMeetAjax({
+        url : 'action/getAllByType/' + listType + '.do',
+        async : false,
+        succFun : function(json) {
+            if (json.errorMsg) {
+                $.Prompt(json.errorMsg);
+                return;
+            }
+            if (json != null && json.dataList) {
+                $("#list_parent").empty();
+                $("#list_parent").prepend("<option value='0'>请选择</option>");
+                var domMsgs = [ {
+                    domId : 'list_parent',
+                    jsonObj : 'dataList'
+                } ];
+                util.selectPadData(domMsgs, json);
+
+            }
+
+        }
+    });
+}
+
 
 function actionTypeChange() {
 	var actionType = $("#action_type").val();
